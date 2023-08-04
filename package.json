@@ -1,0 +1,27 @@
+{
+  "name": "react-experiments",
+  "version": "1.0.0",
+  "description": "this is react expermients",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inderbir101703/React-experiments.git"
+  },
+  "author": "inderbir singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inderbir101703/React-experiments/issues"
+  },
+  "homepage": "https://github.com/inderbir101703/React-experiments#readme",
+  "dependencies": {
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
