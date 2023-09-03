@@ -1,44 +1,49 @@
 
 import {useEffect,useState} from 'react'
+import { Link } from 'react-router-dom'
+import useFetchData from '../../utils/useFetchData'
+import useOnlineStatus from '../../utils/useOnline'
 import Skelton from "../skelton"
-import DishCard from "../Dishcard"
-import './styles.css'
+import DishCard,{PromotedCard} from "../Dishcard"
 
 const Body=()=>{
     const [restaurantList,setRestaurantList]=useState([])
     const  [filteredList,setFilteredList]=useState([])
     const [inputValue,setInputValue]=useState('')
+    const PromotedDishCard=PromotedCard(DishCard)
+ 
+    const data=useFetchData()
+    const onlineStatus=useOnlineStatus()
+
         useEffect(()=>{
-     const fetchData=async()=>{
-            const data=await fetch('https://www.swiggy.com/mapi/homepage/getCards?lat=31.6339793&lng=74.8722642')
-            const pdata=await data.json()
-            setRestaurantList(pdata?.data.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-            setFilteredList(pdata?.data.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
- }
-fetchData()
-},[])
+            setRestaurantList(data)
+            setFilteredList(data)
+},[data])
        
       
     if(restaurantList?.length===0)
     return <Skelton/>
-    
-        return <>
-         <button onClick={()=>{
+  
+    if(!onlineStatus)
+    return <p>please check your connnecton</p>
+
+        return <><div className='flex m-4'>
+         <button className='bg-green-100 m-3 px-3 py-2 rounded-lg' onClick={()=>{
             setRestaurantList(restaurantList.filter((ele)=>ele.info.avgRating>4))
-        }}>filter </button>
-    
-            <label htmlFor="searchButton">Search</label>
-            <input name="searchButton"type='text' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} placeholder='search'/>
-            <button type='submit' onClick={(e)=>{
-                e.preventDefault()
-              setFilteredList(restaurantList.filter((ele)=>!!ele.info.name.toLowerCase().match(inputValue.toLowerCase())))
-             
-            }}>Search</button>
-    
-        <div className='body'> 
+        }}>Top rated restaurants</button>
+      
+           <form className='ml-8' onSubmit={(e)=>{e.preventDefault()
+          e.preventDefault()
+          setFilteredList(restaurantList.filter((ele)=>!!ele.info.name.toLowerCase().match(inputValue.toLowerCase())))
+        }}> 
+            <input name="searchButton"type='text' className='border border-solid border-black m-2 py-1 ' value={inputValue} onChange={(e)=>setInputValue(e.target.value)} placeholder='search'/>
+            <button type='submit' className='bg-green-100 m-3 px-3 py-2 rounded-lg'>Search</button>
+    </form>
+    </div>
+        <div className='flex flex-wrap justify-center'> 
             {
             filteredList?.map((ele)=>{ 
-            return <DishCard key={ele?.info?.id} info={ele.info}/>})
+            return   ele?.info?.promoted ? <PromotedDishCard key={ele?.info?.id} info={ele?.info}/>: <Link key={ele?.info?.id} to={`restaurant/`+ele?.info?.id}><DishCard  info={ele.info}/></Link>})
         }
     
         

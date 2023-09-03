@@ -1,0 +1,5 @@
+customhooks are just utilty functions to use again and again
+make abstract hooks so that every can use -> like fetching data
+naming convevtion -> start name with "use" in smallcase
+
+in fetchdata hook keep the depedency aray emoty as we want to run once

@@ -1,0 +1,14 @@
+postcss is a tool for transforming css along with js. tailwind css uses it
+npx tailwindcss init --> intialzing tailwind css into our repo
+tailwinf.config.css -> config for css
+create .postcssrc for  config file for post css // in this file must include post css as a plugin
+bundler/parcel uses postcssrc to understand tailwind
+
+
+tailwind may cause the code unreadable if written too much on an element
+tailwind only import that code which is required in the project
+ex- if m-4 class is written 100 times in our code , only one time it will be imported by tailwind not 100 times
+so it is very very light weight and keeps the bundle small
+whenever we write a styling class its code will added side by sside by tailwind
+
+different developers may add same styling under same classes so redudant classes can be there

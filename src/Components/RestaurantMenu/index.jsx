@@ -23,9 +23,9 @@ console.log(resId)
   if(resData?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card ){
      const {itemCards}=resData?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card 
    
-console.log(itemCards)
+
     const {name,cloudinaryImageId,cuisines,costForTwoMessage}=resData?.cards[0]?.card?.card?.info
-    return <div className="menu">
+    return <div className="m-4 p-4 w-[200px] bg-gray-50 ">
 
         <h1>{name}</h1>
         <h2>{cuisines}</h2>

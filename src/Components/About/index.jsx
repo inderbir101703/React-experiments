@@ -1,7 +1,14 @@
+import User from "../User"
+
+
 const About=()=>{
+
+
     return<>
     <h1>About us</h1>
-    <h2>working on it</h2>
+/*two instance of same class */
+<User location='amritsar'/>
+
     </>
 }
 

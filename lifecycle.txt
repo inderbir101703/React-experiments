@@ -1,0 +1,12 @@
+MOUNTING
+Constructor (dummy) Render (dunny)
+<HTML Dummy >
+Component Did Mount
+<API Call <this.setState> State variable is updated
+
+
+UPDATE
+render(AP1 data)
+<HTML (now API data>)
+now ccomponentDid Update is called
+
