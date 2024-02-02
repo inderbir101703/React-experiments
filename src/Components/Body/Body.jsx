@@ -43,7 +43,7 @@ const Body=()=>{
         <div className='flex flex-wrap justify-center'> 
             {
             filteredList?.map((ele)=>{ 
-            return   ele?.info?.promoted ? <PromotedDishCard key={ele?.info?.id} info={ele?.info}/>: <Link key={ele?.info?.id} to={`restaurant/`+ele?.info?.id}><DishCard  info={ele.info}/></Link>})
+            return   ele?.info?.promoted ? <Link key={ele?.info?.id} to={`restaurant/`+ele?.info?.id}><PromotedDishCard info={ele?.info}/></Link>: <Link key={ele?.info?.id} to={`restaurant/`+ele?.info?.id}><DishCard  info={ele.info}/></Link>})
         }
     
         

@@ -1,12 +1,12 @@
 import User from "../User"
 
-
+/*two instance of same class */
 const About=()=>{
 
 
     return<>
     <h1>About us</h1>
-/*two instance of same class */
+
 <User location='amritsar'/>
 
     </>

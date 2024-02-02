@@ -1,24 +1,32 @@
 
-import React, {Suspense,lazy} from 'react'
+import React, {Suspense,lazy, useState} from 'react'
 import ReactDOM   from 'react-dom/client'
 import Header from './src/Components/Header'
 import About from './src/Components/About'
 import Body from './src/Components/Body/Body'
 import Error from './src/Components/Error'
 import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom'
+import UserContext from './src/utils/UserContext'
 
 
 
 const GroceryCom=lazy(()=>import('./src/Components/Grocery'))
 const RestaurantMenu=lazy(()=>import('./src/Components/RestaurantMenu'))
-
+//new data can be sent instead default only
+  /**rest of the app uses iinder */
+    /*header will use musk */
 const App=()=>{
-
-    return  <> <Header/>
+    return  <UserContext.Provider value={{loggedinUser:'iinder'}}> 
+  
+    <UserContext.Provider value={{loggedinUser:'musk'}}> 
+  
+    <Header/>
+    </UserContext.Provider >
     <Outlet/> {/** it acts as tunnel and put children here like body about   */} 
-    </>
+    </UserContext.Provider >
   
 }
+
 const appRouter=createBrowserRouter([{
     path:'/',
     element:<App/>,

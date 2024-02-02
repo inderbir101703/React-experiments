@@ -1,0 +1,11 @@
+components which are controlled by the parents are the controlled elements 
+for ex :
+we want to open one accordian open at a times we will uplift the state to parent (here restaurant menu)
+from parent state we will controll the children and decide which will open
+
+two ways of using react context
+functional conponents---> by hook
+class based --> react provide consumer and a call back x --> seee in user component
+
+if we want to udate the data in context->
+see app 

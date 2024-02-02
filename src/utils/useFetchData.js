@@ -7,8 +7,7 @@ const fetchData=async()=>{
 
     setData(pdata?.data.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)}
 useEffect(()=>{
-   fetchData()
-
+ fetchData()
 },[])
 
 
